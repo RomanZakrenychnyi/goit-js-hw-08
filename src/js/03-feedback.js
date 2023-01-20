@@ -9,11 +9,14 @@ form.addEventListener('input', throttle(onFormInput, 500))
 
 populateTextarea();
 
-function onFormInput() {
-    const userDate = {
-        email: email.value,
-        text: textarea.value,
+const userDate = {
+        email: '',
+        text: '',
     }
+
+function onFormInput() {
+    userDate.email = email.value;
+    userDate.text = textarea.value;
     localStorage.setItem('feedback-form-state', JSON.stringify(userDate))
 }
 
@@ -21,6 +24,7 @@ function onFormSubmit(event) {
     event.preventDefault();
     localStorage.removeItem('feedback-form-state');
     event.target.reset()
+    console.log(userDate)
 }
 
 function populateTextarea() {
