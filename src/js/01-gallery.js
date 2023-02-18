@@ -1,9 +1,6 @@
 import { galleryItems } from './gallery-items';
-import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
-
-
-//                  ADD GALLERY
+import SimpleLightbox from "simplelightbox";
 
 const galleryRef = document.querySelector('.gallery');
 const cardGallery = galleryItems
@@ -18,11 +15,9 @@ const cardGallery = galleryItems
 
 galleryRef.insertAdjacentHTML('afterbegin', cardGallery);
 
-//                  ADD SimpleLightbox
 
 new SimpleLightbox('.gallery .gallery__item', {
     captionsData: 'alt',
-    captionPosition: 'bottom',
     captionDelay: 250
 })
 
