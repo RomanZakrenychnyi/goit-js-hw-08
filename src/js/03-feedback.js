@@ -5,7 +5,7 @@ const emailEl = document.querySelector('input[name="email"]');
 const textAreaEl = document.querySelector('textarea[name="message"]');
 
 
-const checkedLs = () => {
+const checkedLs = form => {
     if (localStorage.getItem('feedback-form-state') || localStorage.getItem('feedback-form-state') !== null) {
         const parsedLs = JSON.parse(localStorage.getItem('feedback-form-state'));
         const { email, message } = parsedLs;
@@ -14,7 +14,7 @@ const checkedLs = () => {
     }
 }
 
-checkedLs()
+checkedLs(formEl)
 
 
 const handleFormSubmit = (event) => {
@@ -36,7 +36,7 @@ const handleFormSubmit = (event) => {
 
 
 const handleInputLs = ({ target }) => {
-    console.dir(target);
+    console.log(target.value);
     const userData = {
         email: target.form[0].value,
         message: target.form[1].value,
